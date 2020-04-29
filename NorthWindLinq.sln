@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthWindLinq", "NorthWindLinq\NorthWindLinq.csproj", "{FAE5A6C3-6B8C-4F2F-91A8-1DFB770AE8B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAE5A6C3-6B8C-4F2F-91A8-1DFB770AE8B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAE5A6C3-6B8C-4F2F-91A8-1DFB770AE8B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAE5A6C3-6B8C-4F2F-91A8-1DFB770AE8B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAE5A6C3-6B8C-4F2F-91A8-1DFB770AE8B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F24D8634-769E-4445-9928-656000D09062}
+	EndGlobalSection
+EndGlobal
