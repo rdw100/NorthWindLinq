@@ -1,5 +1,5 @@
 # NorthWindLinq
-This LINQ Query demonstration project was created using using Visual Studio 2019 16.5.4.  The objective is to demonstrate LINQ-to-Entity queries using the Northwind database.
+This LINQ Query demonstration project was created using using Visual Studio 2019 16.5.4, .NET Core 3.1.201, EF Core 3.1.3, & SQL Server 13.0.4001.  The objective is to demonstrate LINQ-to-Entity queries using the Northwind database.
 
 ## Instructions
 Instructions to run this demo project are as follows:
