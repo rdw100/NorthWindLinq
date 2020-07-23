@@ -7,7 +7,7 @@ Instructions to run this demo project are as follows:
    Download NorthWindLinq project and open it in Visual Studio 2019.
 
 2. Create Database
-   Follow run and execute Northwind script instructions from the [NorthWind-Pubs Repo](https://github.com/Microsoft/sql-server-  samples/tree/master/samples/databases/northwind-pubs).  This project created a Northwind database in the default local database server instance mssqllocaldb.
+   Follow run and execute Northwind script instructions from the [NorthWind-Pubs Repo](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs).  This project created a Northwind database in the default local database server instance mssqllocaldb.
 
 3. Verify Connection 
   Verify the connection string in NorthwindContext in Visual Studio and make sure that it is pointing to your local DB server.  For       example, this project uses the following: 
