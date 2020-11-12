@@ -91,12 +91,14 @@ namespace NorthWindLinq
                 from c in Customer
                 group c by c.City;
 
+            Console.WriteLine("\n-------------------------------------------------");
+
             foreach (IGrouping<string, Customers> cityGroup in groupQuery)
             {
-                Console.WriteLine("{0}", cityGroup.Key);
+                Console.WriteLine("\n{0}: ", cityGroup.Key);
                 foreach (Customers c in cityGroup)
                 {
-                    Console.WriteLine("     {0} {1}", c.CustomerId, c.CompanyName);
+                    Console.Write("- {0} {1} ", c.CustomerId, c.CompanyName);
                 }
             }
         }
@@ -111,15 +113,17 @@ namespace NorthWindLinq
                                .ToList();
 
             // Lambda Expression Syntax
-            IEnumerable<IGrouping<string, Customers>> groupQuery =
+            IEnumerable<IGrouping<string, Customers>> groupLambdaQuery =
                 Customer.GroupBy(c => c.City);
 
-            foreach (IGrouping<string, Customers> cityGroup in groupQuery)
+            Console.WriteLine("\n-------------------------------------------------");
+
+            foreach (IGrouping<string, Customers> cityGroup in groupLambdaQuery)
             {
-                Console.WriteLine("{0}", cityGroup.Key);
+                Console.WriteLine("\n{0}: ", cityGroup.Key);
                 foreach (Customers c in cityGroup)
                 {
-                    Console.WriteLine("     {0} {1}", c.CustomerId, c.CompanyName);
+                    Console.Write("- {0} {1} ", c.CustomerId, c.CompanyName);
                 }
             }
         }
