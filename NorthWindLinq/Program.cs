@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text.RegularExpressions;
-using ConsoleTables;
+﻿using ConsoleTables;
 using Microsoft.EntityFrameworkCore;
 using NorthWindLinq.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NorthWindLinq
 {
@@ -39,10 +37,14 @@ namespace NorthWindLinq
                                            .ThenInclude(orderdetails => orderdetails.Product)
                                            .ToList();
 
+            // Document the query sent to the database
+            var queryString = ctx.Customers.ToQueryString();
+            Console.WriteLine(queryString);
+
             // Output to Console
             Console.WriteLine("CUSTOMERS");
             ConsoleTable.From(Customer.Where(c => c.CustomerId == "FRANK")).Write();
-
+            
             Console.WriteLine("\nORDERS");
             ConsoleTable.From(Customer.SelectMany(x => x.Orders).Where(o => o.OrderId == 10267)).Write();
 
@@ -55,25 +57,32 @@ namespace NorthWindLinq
 
         private static void JoinComprehension(NorthwindContext ctx)
         {
+            // Nested LINQ-to-Entity query
+            var customerOrderQuerySql = (from c in ctx.Customers
+                                         join o in ctx.Orders
+                                           on c.CustomerId equals o.CustomerId
+                                         join od in ctx.OrderDetails
+                                           on o.OrderId equals od.OrderId
+                                         join p in ctx.Products
+                                           on od.ProductId equals p.ProductId
+                                         where c.CustomerId == "FRANK"
+                                         select new
+                                         {
+                                             c.CustomerId,
+                                             o.OrderId,
+                                             p.ProductName,
+                                             od.UnitPrice,
+                                             od.Quantity,
+                                             OrderDate = DateTime.Parse(o.OrderDate.ToString()).ToString("yyyy-MM-dd")
+                                         });
+
             // Nested LINQ-to-Entity query using LINQ comprehension query syntax to return an
-            // anonymous object.
-            var customerOrderQuery = (from c in ctx.Customers
-                                      join o in ctx.Orders
-                                        on c.CustomerId equals o.CustomerId
-                                      join od in ctx.OrderDetails
-                                        on o.OrderId equals od.OrderId
-                                      join p in ctx.Products
-                                        on od.ProductId equals p.ProductId
-                                      where c.CustomerId == "FRANK"
-                                      select new
-                                      {
-                                          c.CustomerId,
-                                          o.OrderId,
-                                          p.ProductName,
-                                          od.UnitPrice,
-                                          od.Quantity,
-                                          OrderDate = DateTime.Parse(o.OrderDate.ToString()).ToString("yyyy-MM-dd")
-                                      }).ToList();
+            // anonymous object list
+            var customerOrderQuery = customerOrderQuerySql.ToList();
+
+            // Document the query sent to the database
+            var queryString = customerOrderQuerySql.ToQueryString();
+            Console.WriteLine(queryString);
 
             ConsoleTable.From(customerOrderQuery).Write();
         }
