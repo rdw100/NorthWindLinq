@@ -41,7 +41,7 @@ namespace NorthWindLinq.Models
                 entity.HasKey(e => e.CategoryId);
 
                 entity.HasIndex(e => e.CategoryName)
-                    .HasName("CategoryName");
+                    .HasDatabaseName("CategoryName");
 
                 entity.Property(e => e.CategoryId).HasColumnName("CategoryID");
 
@@ -59,16 +59,16 @@ namespace NorthWindLinq.Models
                 entity.HasKey(e => e.CustomerId);
 
                 entity.HasIndex(e => e.City)
-                    .HasName("City");
+                    .HasDatabaseName("City");
 
                 entity.HasIndex(e => e.CompanyName)
-                    .HasName("CompanyName");
+                    .HasDatabaseName("CompanyName");
 
                 entity.HasIndex(e => e.PostalCode)
-                    .HasName("PostalCode");
+                    .HasDatabaseName("PostalCode");
 
                 entity.HasIndex(e => e.Region)
-                    .HasName("Region");
+                    .HasDatabaseName("Region");
 
                 entity.Property(e => e.CustomerId)
                     .HasColumnName("CustomerID")
@@ -103,10 +103,10 @@ namespace NorthWindLinq.Models
                 entity.HasKey(e => e.EmployeeId);
 
                 entity.HasIndex(e => e.LastName)
-                    .HasName("LastName");
+                    .HasDatabaseName("LastName");
 
                 entity.HasIndex(e => e.PostalCode)
-                    .HasName("PostalCode");
+                    .HasDatabaseName("PostalCode");
 
                 entity.Property(e => e.EmployeeId).HasColumnName("EmployeeID");
 
@@ -160,10 +160,10 @@ namespace NorthWindLinq.Models
                 entity.ToTable("Order Details");
 
                 entity.HasIndex(e => e.OrderId)
-                    .HasName("OrdersOrder_Details");
+                    .HasDatabaseName("OrdersOrder_Details");
 
                 entity.HasIndex(e => e.ProductId)
-                    .HasName("ProductsOrder_Details");
+                    .HasDatabaseName("ProductsOrder_Details");
 
                 entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
@@ -191,22 +191,22 @@ namespace NorthWindLinq.Models
                 entity.HasKey(e => e.OrderId);
 
                 entity.HasIndex(e => e.CustomerId)
-                    .HasName("CustomersOrders");
+                    .HasDatabaseName("CustomersOrders");
 
                 entity.HasIndex(e => e.EmployeeId)
-                    .HasName("EmployeesOrders");
+                    .HasDatabaseName("EmployeesOrders");
 
                 entity.HasIndex(e => e.OrderDate)
-                    .HasName("OrderDate");
+                    .HasDatabaseName("OrderDate");
 
                 entity.HasIndex(e => e.ShipPostalCode)
-                    .HasName("ShipPostalCode");
+                    .HasDatabaseName("ShipPostalCode");
 
                 entity.HasIndex(e => e.ShipVia)
-                    .HasName("ShippersOrders");
+                    .HasDatabaseName("ShippersOrders");
 
                 entity.HasIndex(e => e.ShippedDate)
-                    .HasName("ShippedDate");
+                    .HasDatabaseName("ShippedDate");
 
                 entity.Property(e => e.OrderId).HasColumnName("OrderID");
 
@@ -260,13 +260,13 @@ namespace NorthWindLinq.Models
                 entity.HasKey(e => e.ProductId);
 
                 entity.HasIndex(e => e.CategoryId)
-                    .HasName("CategoryID");
+                    .HasDatabaseName("CategoryID");
 
                 entity.HasIndex(e => e.ProductName)
-                    .HasName("ProductName");
+                    .HasDatabaseName("ProductName");
 
                 entity.HasIndex(e => e.SupplierId)
-                    .HasName("SuppliersProducts");
+                    .HasDatabaseName("SuppliersProducts");
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
 
@@ -319,10 +319,10 @@ namespace NorthWindLinq.Models
                 entity.HasKey(e => e.SupplierId);
 
                 entity.HasIndex(e => e.CompanyName)
-                    .HasName("CompanyName");
+                    .HasDatabaseName("CompanyName");
 
                 entity.HasIndex(e => e.PostalCode)
-                    .HasName("PostalCode");
+                    .HasDatabaseName("PostalCode");
 
                 entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
 
